@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1><span class="flicker"><span>|</span></span>Список <b>задач</b></h1>
+    <br>
+    <button id="show-add-task-form" class="double-border-button">+</button>
+    <button id="delete-todolist" style="float: right" class="double-border-button">X</button>
+    <span>
+    <div id="todo-form">
+        <form>
+            <h2>Добавление задачи</h2>
+            <span class="field">
+                <label for="title">Название:</label>
+                <label>
+                    <input type="text" id="title" name="title" class="input"
+                           pattern="^[А-Яа-яЁё\s]+$" placeholder="Например: Учёба" required>
+                </label>
+            </span>
+            <span class="field">
+                <label for="name"> Что нужно сделать:</label>
+                <label>
+                    <input type="text" id="name" name="name" class="input"
+                              placeholder="Например: Сделать уроки" required>
+                </label>
+            </span>
+            <span class="field">
+                <label for="start" style="margin: 0 2.5em;">Дедлайн:</label>
+                <label>
+                    <input type="text" id="start" name="date" class="input"
+                            placeholder="dd.mm.yyyy" max="3000.12.31" required>
+                </label>
+            <span class="validity"></span>
+            </span>
+            <button id="save-task" class="double-border-button">Сохранить</button>
+        </form>
+    </div>
+    </span>
+    <br><br><br>
+    <div id="todo-list">
+        <div class="n" th:each="task : ${tasks}">
+            <a href="#" id="task" class="task-link" th:attr="data-id=${task.id}" th:text="${task.title}"></a>
+            <button class="delete-task" th:attr="data-id=${task.id}">X</button>
+            <button class="update-task" th:attr="data-id=${task.id}">U</button>
+        </div>
+    </div>
+</body>
+</html>
