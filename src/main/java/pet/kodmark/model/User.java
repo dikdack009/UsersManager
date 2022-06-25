@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.*;
 import java.util.Objects;
 
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
@@ -13,9 +14,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class User {
-    @ToString.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @ToString.Include
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer id;
 
     @ToString.Include
     private String name;
