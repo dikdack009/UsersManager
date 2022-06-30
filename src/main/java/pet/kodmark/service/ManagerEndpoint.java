@@ -13,7 +13,7 @@ import java.util.List;
 public class ManagerEndpoint {
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public ManagerEndpoint(UserRepository userRepository) {

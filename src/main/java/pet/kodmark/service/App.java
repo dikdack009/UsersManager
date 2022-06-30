@@ -9,5 +9,6 @@ public class App {
     public static void main( String[] args ) {
         MySQLConnection.setUpDB();
         SpringApplication.run( App.class, args );
+        MySQLConnection.closeConnection();
     }
 }

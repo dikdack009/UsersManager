@@ -35,7 +35,6 @@ public class UserRepository {
             throw new RuntimeException("The user's login must not be null");
         }
         Session session = MySQLConnection.openConnection();
-        Transaction transaction = session.beginTransaction();
         pet.kodmark.model.User result = session.get(pet.kodmark.model.User.class, login);
         if (result == null ){
             throw new RuntimeException("The user '" + login + "' not found");
@@ -158,6 +157,7 @@ public class UserRepository {
         otherUser.setName(user.getName());
         otherUser.setLogin(user.getLogin());
         otherUser.setPassword(user.getPassword());
+        assert roleName != null;
         if (roleName.isEmpty()) {
             addUserRoles(otherUser, roleList);
 
