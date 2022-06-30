@@ -1,4 +1,5 @@
 package pet.kodmark.service;
+
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -22,18 +23,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
 
-    @Bean(name = "users")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema usersSchema) {
+    @Bean(name = "manager")
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema managerSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("UsersPort");
+        wsdl11Definition.setPortTypeName("ManagerPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-        wsdl11Definition.setSchema(usersSchema);
+        wsdl11Definition.setSchema(managerSchema);
         return wsdl11Definition;
     }
 
     @Bean
-    public XsdSchema countriesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("users.xsd"));
+    public XsdSchema managerSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("manager.xsd"));
     }
 }
