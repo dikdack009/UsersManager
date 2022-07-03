@@ -9,7 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import pet.kodmark.model.Role;
 
-public class MySQLConnection {
+public class UserRepository {
 
     private final static String CONFIGURE_FILE_NAME = "hibernate.cfg.xml";
 
