@@ -9,11 +9,14 @@
         <property name="connection.password">89257044306mV</property>
         <property name="connection.pool_size">10</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <property name="current_session_context_class">thread</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="format_sql">false</property>
+
         <mapping class="pet.kodmark.model.User"/>
         <mapping class="pet.kodmark.model.Role"/>
         <mapping class="pet.kodmark.model.UserRoles"/>
     </session-factory>
 </hibernate-configuration>
+
